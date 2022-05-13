@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container">
+    <br<<br><br>
+        <h1 style="text-align: center;">CNG Calculator</h1>
+        <hr>
+        <div class="container">
+            <form action="{{ url_for("index")}}" method="post">
+                <div class="row">
+                    <div class="col-5">
+                        <h3 style="text-align: center;">PETROL CONSUMPTION</h3>
+                        <hr>
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-8">
+                                <label for="company" class="col-sm-12 col-form-label">Enter Daily Vehicle Running in Kms
+                                    :</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" class="form-control" name="daily_vehicle_running" placeholder="{{daily_vehicle_running}}" value="{{daily_vehicle_running}}" required>
+                            </div>
+                        </div>
+                        
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-8">
+                                <label for="company" class="col-sm-12 col-form-label">Enter Your Vehicle Mileage
+                                    (Km/Liter) :</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" class="form-control" name="mileage" placeholder="{{mileage}}" value="{{mileage}}" required>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-8">
+                                <label for="company" class="col-sm-12 col-form-label">Daily Petrol Fuel Consumption
+                                    (Litres)
+                                    :</label>
+                            </div>
+                            <div class="col-4">
+                                <input style="text-align: center;" type="number" class="form-control" name="company" placeholder="{{daily_petrol_consumption}}" readonly>
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-8">
+                                <label for="company" class="col-sm-12 col-form-label">Enter Per Litre Cost of Petrol in city (Rupees) :</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" class="form-control" name="petrol_cost_pl" placeholder="{{petrol_cost_pl}}" value="{{petrol_cost_pl}}" required>
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-8">
+                                <label for="company" class="col-sm-12 col-form-label">Daily Petrol Expense (Rupees) :</label>
+                            </div>
+                            <div class="col-4">
+                                <input style="text-align: center;"type="number" class="form-control" name="company"  placeholder="{{daily_petrol_expense}}" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        <!-- <div class="vl" style="align-content: center;"></div> -->
+                    </div>
+
+                    <div class="col-5">
+                        <h3 style="text-align: center;">CNG CONSUMPTION</h3>
+                        <hr>
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-8">
+                                <label for="company" class="col-sm-12 col-form-label">Daily CNG Vehicle Running in Kms :</label>
+                            </div>
+                            <div class="col-4">
+                                <input style="text-align: center;" type="number" class="form-control" name="company"  placeholder="{{daily_vehicle_running}}" readonly>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="form-group row">
+                            <div class="col-8">
+                                <label for="company" class="col-sm-12 col-form-label">Your CNG Vehicle Mileage (Km / Kg) :</label>
+                            </div>
+                            <div class="col-4">
+                                <input style="text-align: center;" type="number" class="form-control" name="company"  placeholder="{{cng_mileage}}" readonly>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="form-group row">
+                            <div class="col-8">
+                                <label for="company" class="col-sm-12 col-form-label">Daily CNG Fuel Consumption (Kg) :</label>
+                            </div>
+                            <div class="col-4">
+                                <input style="text-align: center;" type="number" class="form-control" name="company"  placeholder="{{daily_cng_consumption}}" readonly>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="form-group row">
+                            <div class="col-8">
+                                <label for="company" class="col-sm-12 col-form-label">Enter Per Litre Cost of CNG in city (Rupees) :</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="number" class="form-control" name="cng_cost_pl" placeholder="{{cng_cost_pl}}" value="{{cng_cost_pl}}" required>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="form-group row">
+                            <div class="col-8">
+                                <label for="company" class="col-sm-12 col-form-label">Daily CNG Expense (Rupees) :</label>
+                            </div>
+                            <div class="col-4">
+                                <input style="text-align: center;" type="number" class="form-control" name="company"  placeholder="{{cng_expense}}" readonly>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <br>
+
+
+
+
+
+                <hr>
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            </form>
+            <hr>
+
+            <!-- Results -->
+            <form>
+                <br>
+                <div class="row">
+                    <div class="col-8">
+                    <h2 style="text-align: center;">RESULTS</h2>
+                    <hr>
+
+                    <div class="form-group row">
+                        <div class="col-8">
+                            <label for="company" class="col-sm-12 col-form-label">Daily Fuel Savings (Rupees) :</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="number" class="form-control" name="daily_vehicle_running" placeholder="{{daily_fuel_saving}}" value="{{daily_fuel_saving}}" readonly>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-8">
+                            <label for="company" class="col-sm-12 col-form-label">Monthly savings, assuming 25 days a month running :</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="number" class="form-control" name="daily_vehicle_running" placeholder="{{daily_fuel_saving*25}}" value="{{daily_fuel_saving*25}}" readonly>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-8">
+                            <label for="company" class="col-sm-12 col-form-label">Yearly savings, assuming a 25 days/month and 12 month running :</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="number" class="form-control" name="daily_vehicle_running" placeholder="{{daily_fuel_saving*25*12}}" value="{{daily_fuel_saving*25*12}}" readonly>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-8">
+                            <label for="company" class="col-sm-12 col-form-label">Cost you pay for a Kit (Rupees) :</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="number" class="form-control" name="daily_vehicle_running" placeholder="{{daily_vehicle_running}}" value="{{daily_vehicle_running}}" required>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-8">
+                            <label for="company" class="col-sm-12 col-form-label">You recover the cost of the kit in(Month in aprox.) :</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="number" class="form-control" name="daily_vehicle_running" placeholder="{{daily_vehicle_running}}" value="{{daily_vehicle_running}}" readonly>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                    </form>
+
+        </div>
+</div>
+{% endblock %}
